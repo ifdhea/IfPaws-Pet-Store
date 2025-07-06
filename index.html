@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IFPaws - Pet Shop & Care</title>
+    <link rel="shortcut icon" href="/assets/i.png" type="image/x-icon">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Baloo+2:wght@400;500;600;700&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Custom Cursor Elements -->
+    <div class="custom-cursor" id="customCursor"></div>
+
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-container">
+            <div class="loading-pet">
+                <div class="pet-face">
+                    <div class="pet-eyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                    </div>
+                    <div class="pet-nose"></div>
+                    <div class="pet-mouth"></div>
+                </div>
+                <div class="pet-ears">
+                    <div class="ear left"></div>
+                    <div class="ear right"></div>
+                </div>
+            </div>
+            <div class="loading-text">
+                <h3 class="poppin-font">Loading IFPaws...</h3>
+                <div class="loading-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Landing Page -->
+    <div class="page-section active" id="landingPage">
+        <div class="landing-page">
+            <div class="floating-elements">
+                <div class="float-element">🐾</div>
+                <div class="float-element">🐕</div>
+                <div class="float-element">🐱</div>
+                <div class="float-element">🦴</div>
+                <div class="float-element">🎾</div>
+            </div>
+            <div class="landing-content">
+            <h1 class="poppin-font hero-title">🐾 IFPaws 🐾</h1>
+            <h1 class="subtitle">Small in name, Big in love!</h1>
+            <p class="lead description">Any Shopping just for Chingu's Home</p>
+                <div class="hero-features">
+                    <div class="feature-item pop-in" style="animation-delay: 0.3s">
+                        <i class="fas fa-heart"></i>
+                        <span>Produk Berkualitas</span>
+                    </div>
+                    <div class="feature-item pop-in" style="animation-delay: 0.6s">
+                        <i class="fas fa-truck"></i>
+                        <span>Pengiriman Cepat</span>
+                    </div>
+                    <div class="feature-item pop-in" style="animation-delay: 0.9s">
+                        <i class="fas fa-star"></i>
+                        <span>Harga Terbaik</span>
+                    </div>
+                </div>
+                
+                <button class="btn btn-start cursor-pointer poppin-font pulse-glow" onclick="showCouponSection()">
+                    <i class="fas fa-rocket"></i>
+                    Mulai Berbelanja! 🎉
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Coupon Section -->
+    <div class="page-section" id="couponSection">
+    <div class="coupon-section">
+        <div class="coupon-animation">
+        <div class="coupon-anim-element"></div>
+        <div class="coupon-anim-element"></div>
+        <div class="coupon-anim-element"></div>
+        </div>
+        <div class="coupon-card">
+        <div class="coupon-header">
+            <h2 class="poppin-font mb-4">🎁 Dapatkan Diskon Spesial! 🎁</h2>
+            <div class="coupon-decoration">
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            </div>
+        </div>
+        <p class="coupon-description">Masukkan kode kupon untuk mendapatkan diskon hingga 50%!</p>
+        <div class="coupon-hints">
+            <small>💡 Coba: PETLOVE, IFPAWS50, atau WELCOME</small>
+        </div>
+        <div class="coupon-input-container">
+            <input type="text" class="form-control coupon-input" id="couponCode" placeholder="Masukkan kode kupon...">
+            <button class="btn btn-custom cursor-pointer" onclick="validateCoupon()">
+            <i class="fas fa-ticket-alt"></i>
+            Gunakan Kupon
+            </button>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Login/Register Section -->
+    <div class="page-section" id="loginSection">
+    <div class="auth-container">
+        <div class="auth-card" id="loginCard">
+        <div class="auth-header">
+            <h2 class="poppin-font">🔐 Masuk ke IFPaws</h2>
+            <p>Bergabunglah dengan komunitas pecinta hewan!</p>
+        </div>
+        <div class="auth-form">
+            <div class="form-group">
+            <i class="fas fa-envelope mt-1"></i>
+            <input type="email" class="form-control" id="email" placeholder="Email">
+            </div>
+            <div class="form-group">
+            <i class="fas fa-lock mt-1"></i>
+            <input type="password" class="form-control" id="password" placeholder="Password">
+            </div>
+            <div class="auth-buttons">
+            <button class="btn btn-custom cursor-pointer" onclick="login()">
+                <i class="fas fa-sign-in-alt"></i>
+                Login
+            </button>
+            <button class="btn btn-link cursor-pointer" onclick="showRegister()">
+                Belum punya akun? Daftar sekarang
+            </button>
+            </div>
+            <div class="auth-social">
+            <p>Atau masuk dengan:</p>
+            <div class="social-buttons">
+                <button class="btn btn-social google">
+                <i class="fab fa-google"></i> Google
+                </button>
+                <button class="btn btn-social facebook">
+                <i class="fab fa-facebook-f"></i> Facebook
+                </button>
+            </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="auth-card" id="registerCard" style="display: none;">
+        <div class="auth-header">
+            <h2 class="poppin-font">🐾 Daftar Akun Baru</h2>
+            <p>Buat akun untuk mulai berbelanja!</p>
+        </div>
+        <div class="auth-form">
+            <div class="form-group">
+            <i class="fas fa-user"></i>
+            <input type="text" class="form-control" id="regName" placeholder="Nama Lengkap" required>
+            </div>
+            <div class="form-group">
+            <i class="fas fa-envelope"></i>
+            <input type="email" class="form-control" id="regEmail" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" class="form-control" id="regPassword" placeholder="Password" required>
+            </div>
+            <div class="form-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" class="form-control" id="regConfirmPassword" placeholder="Konfirmasi Password">
+            </div>
+            <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="regTerms">
+            <label class="form-check-label" for="regTerms">
+                Saya setuju dengan <a href="#">Syarat & Ketentuan</a>
+            </label>
+            </div>
+            <div class="auth-buttons">
+            <button class="btn btn-custom cursor-pointer" onclick="register()">
+                <i class="fas fa-user-plus"></i>
+                Daftar
+            </button>
+            <button class="btn btn-link cursor-pointer" onclick="showLogin()">
+                Sudah punya akun? Masuk
+            </button>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Main E-commerce -->
+    <div class="page-section" id="mainEcommerce">
+        <!-- ✅ Navigation Baru -->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand" href="#home">
+            <img src="assets/ii.png" alt="Icon" height="62" class="d-inline-block align-top">
+            </a>
+
+            <!-- Tengah: Home & About Us -->
+            <div class="collapse navbar-collapse justify-content-center">
+            <ul class="navbar-nav">
+                <li class="nav-item mx-3">
+                <a class="nav-link" href="#home">Home</a>
+                </li>
+                <li class="nav-item mx-3">
+                <a class="nav-link" href="#about">About Us</a>
+                </li>
+            </ul>
+            </div>
+
+            <!-- Kanan: Kategori, Cart, Theme, Profile -->
+            <div class="d-flex align-items-center">
+            <!-- Kategori Dropdown -->
+            <div class="dropdown me-3">
+                <button class="btn nav-btn dropdown-toggle cursor-pointer" type="button" data-bs-toggle="dropdown">
+                <i class="fas fa-th-large"></i> Kategori
+                </button>
+                <ul class="dropdown-menu custom-dropdown">
+                <li><a class="dropdown-item cursor-pointer" onclick="filterProducts('makanan')">
+                    <i class="fas fa-drumstick-bite"></i> Makanan</a></li>
+                <li><a class="dropdown-item cursor-pointer" onclick="filterProducts('mainan')">
+                    <i class="fas fa-gamepad"></i> Mainan</a></li>
+                <li><a class="dropdown-item cursor-pointer" onclick="filterProducts('kesehatan')">
+                    <i class="fas fa-pills"></i> Kesehatan</a></li>
+                <li><a class="dropdown-item cursor-pointer" onclick="filterProducts('aksesoris')">
+                    <i class="fas fa-gem"></i> Aksesoris</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item cursor-pointer" onclick="showAllProducts()">
+                    <i class="fas fa-list"></i> Semua Produk</a></li>
+                </ul>
+            </div>
+
+            <!-- Cart Icon -->
+            <button class="btn nav-btn cart-icon cursor-pointer me-3" onclick="showCart()">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-badge" id="cartCount">0</span>
+            </button>
+
+            <!-- Theme Toggle -->
+            <button class="theme-toggle cursor-pointer me-3" onclick="toggleTheme()">
+                <i class="fas fa-moon" id="themeIcon"></i>
+            </button>
+
+            <!-- Profile Dropdown -->
+            <div class="dropdown">
+                <a href="#" class="nav-link dropdown-toggle d-flex align-items-center" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="assets/cute.jpg" class="rounded-circle me-2" width="32" height="32" alt="Profile">
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#profileModal">View Profile</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item cursor-pointer" onclick="handleLogout()">Logout</a></li>
+                </ul>
+            </div>
+            </div>
+        </div>
+        </nav>
+
+        <!-- ✅ MODAL VIEW PROFILE -->
+        <div class="modal fade" id="profileModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Profil Pengguna</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <img src="assets/cute.jpg" class="rounded-circle img-fluid mb-3" style="max-width: 120px; height: auto;" alt="Foto Profil">
+                <h5>Nama Pengguna</h5>
+                <p>Email ifinest@example.com</p>
+            </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="hero-section" id="home">
+            <div class="hero-background">
+                <div class="hero-particles">
+                    <div class="particle">🐾</div>
+                    <div class="particle">🐕</div>
+                    <div class="particle">🐱</div>
+                    <div class="particle">🦴</div>
+                    <div class="particle">🎾</div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title poppin-font">Selamat Datang di IFPaws! 🐾</h1>
+                    <p class="hero-subtitle">Toko pet shop terlengkap dengan produk berkualitas untuk hewan kesayangan Anda</p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <h3>500+</h3>
+                            <p>Produk</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>10K+</h3>
+                            <p>Pelanggan</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>4.9⭐</h3>
+                            <p>Rating</p>
+                        </div>
+                    </div>
+                    <button class="btn btn-hero cursor-pointer" onclick="scrollToProducts()">
+                        <i class="fas fa-search"></i>
+                        Jelajahi Produk
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section class="products-section" id="products">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title poppin-font mt-3">🛍️ Produk Pilihan 🛍️</h2>
+                    <p class="section-subtitle">Temukan produk terbaik untuk sahabat berbulu Anda</p>
+                </div>
+                
+                <div class="product-filters">
+                    <button class="filter-btn active" onclick="filterProducts('all')">Semua</button>
+                    <button class="filter-btn" onclick="filterProducts('makanan')">Makanan</button>
+                    <button class="filter-btn" onclick="filterProducts('mainan')">Mainan</button>
+                    <button class="filter-btn" onclick="filterProducts('kesehatan')">Kesehatan</button>
+                    <button class="filter-btn" onclick="filterProducts('aksesoris')">Aksesoris</button>
+                </div>
+                
+                <div class="row" id="productGrid">
+                    <!-- Products will be loaded here -->
+                </div>
+                
+                <div class="text-center mt-4 mb-4">
+                    <button class="btn btn-outline-custom cursor-pointer" onclick="showAllProducts()">
+                        <i class="fas fa-store"></i>
+                        Lihat Semua Produk
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- All Products Section -->
+        <section class="all-products-section" id="allProductsSection" style="display: none;">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title poppin-font">📦 Semua Produk</h2>
+                    <button class="btn btn-outline-custom" onclick="backToHome()">
+                        <i class="fas fa-arrow-left"></i>
+                        Kembali ke Beranda
+                    </button>
+                </div>
+                
+                <div class="search-bar">
+                    <div class="search-container">
+                        <i class="fas fa-search"></i>
+                        <input type="text" class="form-control" id="searchInput" placeholder="Cari produk...">
+                    </div>
+                </div>
+                
+                <div class="row" id="allProductsGrid">
+                    <!-- All products will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ✅ MULTI-STEP CHECKOUT MODAL -->
+        <div class="modal fade" id="checkoutModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title poppin-font">🛒 Checkout</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                <!-- Left: Step Form -->
+                <div class="col-md-8">
+                    <!-- STEP 1: Billing Details -->
+                    <div class="checkout-card">
+                    <h4 class="card-title">📋 Informasi Pengiriman</h4>
+                    <div class="checkout-form">
+                        <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Nama Lengkap</label>
+                            <input type="text" class="form-control" id="fullName" placeholder="Nama Lengkap">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" id="emailCheckout" placeholder="Email">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Nomor Telepon</label>
+                            <input type="tel" class="form-control" id="phone" placeholder="Nomor Telepon">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Kota</label>
+                            <input type="text" class="form-control" id="city" placeholder="Kota">
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label class="form-label">Alamat Lengkap</label>
+                            <textarea class="form-control" id="address" rows="3" placeholder="Alamat Lengkap"></textarea>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+
+                    <!-- STEP 2: Payment Method -->
+                    <div class="checkout-card">
+                    <h4 class="card-title">💳 Metode Pembayaran</h4>
+                    <div class="payment-methods">
+                        <div class="payment-method" onclick="selectPayment(this)" data-method="credit">
+                        <i class="fas fa-credit-card"></i>
+                        <span>Kartu Kredit/Debit</span>
+                        <div class="payment-icons">
+                            <i class="fab fa-cc-visa"></i>
+                            <i class="fab fa-cc-mastercard"></i>
+                        </div>
+                        </div>
+                        <div class="payment-method" onclick="selectPayment(this)" data-method="bank">
+                        <i class="fas fa-university"></i>
+                        <span>Transfer Bank</span>
+                        <div class="payment-icons">
+                            <span>BCA</span>
+                            <span>BNI</span>
+                            <span>Mandiri</span>
+                        </div>
+                        </div>
+                        <div class="payment-method" onclick="selectPayment(this)" data-method="ewallet">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>E-Wallet</span>
+                        <div class="payment-icons">
+                            <span>OVO</span>
+                            <span>DANA</span>
+                            <span>GoPay</span>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="payment-details mt-3 d-none" id="creditDetails">
+                        <label for="cardNumber" class="form-label">Card Number</label>
+                        <input type="text" class="form-control mb-2" id="cardNumber" placeholder="1234 5678 9012 3456">
+                        <div class="row">
+                        <div class="col-md-6 mb-2">
+                            <label for="expiry" class="form-label">Expiry Date</label>
+                            <input type="text" class="form-control" id="expiry" placeholder="MM/YY">
+                        </div>
+                        <div class="col-md-6 mb-2">
+                            <label for="cvv" class="form-label">CVV</label>
+                            <input type="text" class="form-control" id="cvv" placeholder="123">
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                <!-- Right: Order Summary -->
+                <div class="col-md-4">
+                    <div class="checkout-card order-summary">
+                    <h4 class="card-title">📊 Ringkasan Pesanan</h4>
+                    <div id="orderSummaryModal" class="order-items"></div>
+                    <div class="order-totals">
+                        <div class="total-line">
+                        <span>Subtotal:</span>
+                        <span id="subtotalModal">Rp 0</span>
+                        </div>
+                        <div class="total-line">
+                        <span>Ongkir:</span>
+                        <span>Rp 15.000</span>
+                        </div>
+                        <div class="total-line total-final">
+                        <span>Total:</span>
+                        <span id="totalModal">Rp 15.000</span>
+                        </div>
+                    </div>
+                    <div class="order-confirm mt-4">
+                        <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" id="agreeTermsCheckout">
+                        <label class="form-check-label" for="agreeTermsCheckout">
+                            I agree to the <a href="#">Terms & Conditions</a>
+                        </label>
+                        </div>
+                        <button class="btn btn-custom w-100 cursor-pointer" id="placeOrderBtn" onclick="submitOrder()">
+                        <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                        <span class="btn-text"><i class="fas fa-credit-card"></i> Place Order</span>
+                        </button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- ✅ ORDER CONFIRMATION MODAL -->
+        <div class="modal fade" id="orderConfirmationModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-body text-center p-5">
+                <div class="order-success-icon">
+                <i class="fas fa-check-circle fa-3x text-success"></i>
+                </div>
+                <h3>Thank You for Your Order!</h3>
+                <p>Your order has been received and is being processed. We will contact you shortly with the confirmation details.</p>
+                <div class="order-details mt-3">
+                <p>Order Number: <strong id="orderNumber">#IFP-2023-001</strong></p>
+                <p>Date: <strong id="orderDate">Today</strong></p>
+                <p>Total: <strong id="orderFinalTotal">Rp 0</strong></p>
+                </div>
+                <button class="btn btn-primary mt-3" data-bs-dismiss="modal">
+                Continue Shopping
+                </button>
+                <div class="track-order mt-4">
+                <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#trackOrderModal">
+                    <i class="fas fa-truck me-2"></i> Track Your Order
+                </a>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- ✅ TRACK ORDER MODAL -->
+        <div class="modal fade" id="trackOrderModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Track Your Order</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="tracking-container">
+                <div class="tracking-header">
+                    <div class="order-number">Order #IFP-2023-001</div>
+                    <div class="order-status">On the way</div>
+                </div>
+                <div class="tracking-progress">
+                    <div class="progress-step completed">
+                    <div class="step-icon"><i class="fas fa-check"></i></div>
+                    <div class="step-label">Order Placed</div>
+                    <div class="step-date">Today</div>
+                    </div>
+                    <div class="progress-step completed">
+                    <div class="step-icon"><i class="fas fa-check"></i></div>
+                    <div class="step-label">Processing</div>
+                    <div class="step-date">Today</div>
+                    </div>
+                    <div class="progress-step active">
+                    <div class="step-icon"><i class="fas fa-truck"></i></div>
+                    <div class="step-label">On the way</div>
+                    <div class="step-date">Tomorrow</div>
+                    </div>
+                    <div class="progress-step">
+                    <div class="step-icon"><i class="fas fa-home"></i></div>
+                    <div class="step-label">Delivered</div>
+                    <div class="step-date"></div>
+                    </div>
+                </div>
+                <div class="tracking-map text-center my-3">
+                    <i class="fas fa-map-marked-alt fa-2x text-muted"></i>
+                    <p class="mt-2">Your package is on its way!</p>
+                </div>
+                <div class="tracking-details">
+                    <div class="detail"><span>Carrier:</span> <strong>IFPAWS Express</strong></div>
+                    <div class="detail"><span>Tracking Number:</span> <strong>IFP123456789</strong></div>
+                    <div class="detail"><span>Estimated Delivery:</span> <strong>Tomorrow</strong></div>
+                </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+            </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- ✅ ABOUT SECTION -->
+        <section class="about-section py-5 text-dark dark-section" id="about">
+        <div class="container">
+            <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="about-image-container position-relative">
+                <img src="assets/gg.jpg" alt="About IFPAWS" class="img-fluid rounded shadow about-image">
+                <div class="about-circle position-absolute top-0 start-0 translate-middle bg-primary rounded-circle"></div>
+                <div class="about-dots position-absolute bottom-0 end-0 translate-middle text-muted">●●●</div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h2 class="section-title">About <span class="text-primary">IFPAWS</span></h2>
+                <p>IFPAWS is the biggest market of PET Lovers products. Get your daily needs from our store. We deliver to you every day from 7:00 to 23:00.</p>
+                <p>Our mission is to provide high-quality products and services for your beloved pets, ensuring their health, happiness, and well-being.</p>
+                <div class="d-flex gap-4 my-4 about-features">
+                <div class="feature text-center">
+                    <i class="fas fa-shipping-fast fa-2x text-primary"></i>
+                    <p class="mt-2 mb-0">Fast Delivery</p>
+                </div>
+                <div class="feature text-center">
+                    <i class="fas fa-award fa-2x text-warning"></i>
+                    <p class="mt-2 mb-0">Quality Products</p>
+                </div>
+                <div class="feature text-center">
+                    <i class="fas fa-headset fa-2x text-success"></i>
+                    <p class="mt-2 mb-0">24/7 Support</p>
+                </div>
+                </div>
+                <button class="btn btn-primary">
+                Learn More <i class="fas fa-paw ms-2"></i>
+                </button>
+            </div>
+            </div>
+        </div>
+        </section>
+
+        <!-- ✅ NEWSLETTER SECTION -->
+        <section class="newsletter-section py-5 text-dark dark-section">
+        <div class="container">
+            <div class="newsletter-box d-flex flex-wrap align-items-center justify-content-between">
+            <div class="newsletter-content me-lg-4 mb-4 mb-lg-0 flex-fill">
+                <h2>Join our newsletter for <span class="text-primary">$10 off</span></h2>
+                <p>Register now to get latest updates on promotions & coupons. Don't worry, we not spam!</p>
+                <div class="input-group mt-3">
+                <input type="email" class="form-control" placeholder="Enter your email address">
+                <button class="btn btn-primary">Subscribe <i class="fas fa-paper-plane ms-1"></i></button>
+                </div>
+            </div>
+            <div class="newsletter-image flex-fill text-center">
+                <img src="assets/ff.png" alt="Pet with envelope" class="img-fluid" style="max-height: 250px;">
+            </div>
+            </div>
+        </div>
+        </section>
+
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h4 class="poppin-font">🐾 IFPaws</h4>
+                        <p>Pet Shop & Care terpercaya untuk hewan kesayangan Anda</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-section">
+                        <h5>Layanan</h5>
+                        <ul>
+                            <li><a href="#">Pet Grooming</a></li>
+                            <li><a href="#">Konsultasi Vet</a></li>
+                            <li><a href="#">Pet Hotel</a></li>
+                            <li><a href="#">Pet Training</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h5>Informasi</h5>
+                        <ul>
+                            <li><a href="#">Tentang Kami</a></li>
+                            <li><a href="#">Kebijakan Privasi</a></li>
+                            <li><a href="#">Syarat & Ketentuan</a></li>
+                            <li><a href="#">FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h5>Kontak</h5>
+                        <div class="contact-info">
+                            <p><i class="fas fa-phone"></i> +62 123 456 789</p>
+                            <p><i class="fas fa-envelope"></i> info@ifpaws.com</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Daegu, South Korea</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 IFPAWS. All rights reserved. Dibuat dengan ❤️ untuk hewan kesayangan Anda!</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Product Modal -->
+    <div class="modal fade" id="productModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title poppin-font" id="modalTitle">Detail Produk</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="product-image-modal" id="modalImage">
+                                🐕
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="product-details">
+                                <h3 id="modalProductName" class="product-name">Nama Produk</h3>
+                                <div class="product-rating">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="rating-text">(4.9) 128 ulasan</span>
+                                </div>
+                                <p id="modalProductDescription" class="product-description">Deskripsi produk akan ditampilkan di sini.</p>
+                                <div class="product-price">
+                                    <h4 class="price-current" id="modalProductPrice">Rp 0</h4>
+                                    <span class="price-discount">Diskon 20%</span>
+                                </div>
+                                <div class="product-variants">
+                                    <label class="form-label">Ukuran:</label>
+                                    <div class="variant-options">
+                                        <button class="variant-btn active">S</button>
+                                        <button class="variant-btn">M</button>
+                                        <button class="variant-btn">L</button>
+                                        <button class="variant-btn">XL</button>
+                                    </div>
+                                </div>
+                                <div class="quantity-selector">
+                                    <label class="form-label">Jumlah:</label>
+                                    <div class="quantity-controls">
+                                        <button class="quantity-btn" onclick="changeQuantity(-1)">-</button>
+                                        <input type="number" class="quantity-input" id="modalQuantity" value="1" min="1">
+                                        <button class="quantity-btn" onclick="changeQuantity(1)">+</button>
+                                    </div>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="btn btn-custom cursor-pointer" onclick="addToCart()">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        Tambah ke Keranjang
+                                    </button>
+                                    <button class="btn btn-outline-custom cursor-pointer" onclick="buyNow()">
+                                        <i class="fas fa-bolt"></i>
+                                        Beli Sekarang
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ✅ Modal Quick View Produk -->
+    <div class="modal fade" id="productQuickView" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Product Details</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body p-4">
+            <div class="row">
+            <div class="col-md-6">
+                <div class="product-image-container text-center">
+                <img id="quickViewImage" src="" alt="Product Image" 
+                    class="img-fluid rounded"
+                    onerror="this.onerror=null;this.src='assets/images/default-product.jpg';">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h3 id="quickViewName"></h3>
+                <div id="quickViewPrice" class="my-3"></div>
+                <p id="quickViewDescription" class="text-muted mb-4"></p>
+                <div class="mb-3">
+                <label for="quickViewQty" class="form-label fw-semibold">Jumlah:</label>
+                <div class="input-group" style="max-width: 160px;">
+                    <button class="btn btn-outline-secondary" type="button" onclick="changeQuickViewQuantity(-1)">
+                    <i class="fas fa-minus"></i>
+                    </button>
+                    <input type="number" id="quickViewQty" class="form-control text-center" value="1" min="1">
+                    <button class="btn btn-outline-secondary" type="button" onclick="changeQuickViewQuantity(1)">
+                    <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+                </div>
+
+                <div class="d-flex gap-2">
+                <button class="btn btn-primary flex-grow-1" onclick="addToCartFromQuickView()">
+                    <i class="fas fa-cart-plus me-2"></i>Add to Cart
+                </button>
+                <button class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                    <i class="fas fa-times me-2"></i>Close
+                </button>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+
+
+    <!-- Cart Modal -->
+    <div class="modal fade" id="cartModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title poppin-font">🛒 Keranjang Belanja</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="cartItems" class="cart-items">
+                        <div class="empty-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            <p>Keranjang masih kosong!</p>
+                            <small>Ayo mulai berbelanja untuk hewan kesayangan Anda</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="cart-total">
+                        <span>Total: <strong id="cartTotal">Rp 0</strong></span>
+                    </div>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <button class="btn btn-custom" onclick="openCheckoutModal()">
+                        <i class="fas fa-credit-card"></i>
+                        Checkout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Track Order Modal -->
+    <div class="modal fade" id="trackOrderModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title poppin-font">📦 Lacak Pesanan #IFP-2024-001</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+            <div class="order-tracking">
+            <div class="order-status">
+                <div class="status-badge shipped">Sedang Dikirim</div>
+                <p>Estimasi tiba: 14 Desember 2024</p>
+            </div>
+            
+            <div class="tracking-progress">
+                <div class="progress-step completed">
+                <div class="step-icon"><i class="fas fa-check"></i></div>
+                <div class="step-label">Pesanan Diterima</div>
+                <div class="step-date">12 Des, 10:30</div>
+                </div>
+                <div class="progress-step completed">
+                <div class="step-icon"><i class="fas fa-box"></i></div>
+                <div class="step-label">Pesanan Dikemas</div>
+                <div class="step-date">12 Des, 14:15</div>
+                </div>
+                <div class="progress-step active">
+                <div class="step-icon"><i class="fas fa-truck"></i></div>
+                <div class="step-label">Sedang Dikirim</div>
+                <div class="step-date">13 Des, 09:45</div>
+                </div>
+                <div class="progress-step">
+                <div class="step-icon"><i class="fas fa-home"></i></div>
+                <div class="step-label">Pesanan Tiba</div>
+                <div class="step-date">Estimasi: 14 Des</div>
+                </div>
+            </div>
+            
+            <div class="tracking-map">
+                <div class="map-container">
+                <img src="https://maps.googleapis.com/maps/api/staticmap?center=Daegu,South+Korea&zoom=12&size=600x300&maptype=roadmap&markers=color:red%7CDaegu,South+Korea&key=YOUR_API_KEY" alt="Delivery Map">
+                </div>
+                <div class="delivery-info">
+                <div class="delivery-address">
+                    <h6><i class="fas fa-map-marker-alt"></i> Alamat Pengiriman</h6>
+                    <p>Jl. Contoh No. 123, Daegu, South Korea</p>
+                </div>
+                <div class="delivery-contact">
+                    <h6><i class="fas fa-user"></i> Penerima</h6>
+                    <p>John Doe (081234567890)</p>
+                </div>
+                <div class="delivery-courier">
+                    <h6><i class="fas fa-truck"></i> Kurir</h6>
+                    <p>IFPaws Express - No. Resi: IFP123456789</p>
+                </div>
+                </div>
+            </div>
+            
+            <div class="order-items-summary">
+                <h6><i class="fas fa-box-open"></i> Detail Pesanan</h6>
+                <div class="order-item">
+                <div class="item-image">🐱</div>
+                <div class="item-details">
+                    <p>Royal Canin Kitten</p>
+                    <small>1 x Rp 100.000</small>
+                </div>
+                <div class="item-total">Rp 100.000</div>
+                </div>
+                <div class="order-totals">
+                <div class="total-line">
+                    <span>Subtotal:</span>
+                    <span>Rp 100.000</span>
+                </div>
+                <div class="total-line">
+                    <span>Ongkir:</span>
+                    <span>Rp 15.000</span>
+                </div>
+                <div class="total-line grand-total">
+                    <span>Total:</span>
+                    <span>Rp 115.000</span>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+            <button type="button" class="btn btn-custom" onclick="contactSupport()">
+            <i class="fas fa-headset"></i> Hubungi Dukungan
+            </button>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+        <div id="toast" class="toast" role="alert">
+            <div class="toast-header">
+                <i class="fas fa-paw text-primary me-2"></i>
+                <strong class="me-auto">IFPaws</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+            </div>
+            <div class="toast-body" id="toastMessage">
+                Pesan akan ditampilkan di sini
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="js/jquery.min.js"></script>
+    <!-- GSAP for advanced animations -->
+    <script src="js/gsap.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>
